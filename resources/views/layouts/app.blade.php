@@ -85,7 +85,7 @@
                             </ul>
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="">ক্যাটাগরি</a>
+                                    <a href="{{ route('categories.index') }}">ক্যাটাগরি</a>
                                 </li>
                             </ul>
                         </div>
