@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Http\Requests\CreateCategoryRequest;
 
 class CategoriesController extends Controller
 {
@@ -33,17 +34,20 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
-        $this->validate($request, [
-            'name'=>'required|unique:categories'
-        ]);
+        //validation from controller
+//        $this->validate($request, [
+//            'name'=>'required|unique:categories'
+//        ]);
 
-        $ncategory = new Category();
+        $ncategory = new Category();    //create
         Category::create([
             'name'=> $request->name
         ]);
-        return redirect(route('categories.index'));
+        session()->flash('success', 'অভিনন্দন!! ক্যাটাগরি তৈরি সফল হয়েছে।'); //flash
+
+        return redirect(route('categories.index')); //return & redirect
     }
 
     /**
