@@ -73,14 +73,8 @@
         </nav>
 
         <main class="py-4">
-            <div class="container">
-                        @if(session()->has('success'))
-                            <div class="alert alert-success text-center">
-                                {{ session()->get('success') }}
-                            </div>
-                        @endif
-            </div>
             @auth
+
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
